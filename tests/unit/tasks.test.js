@@ -58,6 +58,23 @@ test('Atualizando uma Task já existente', async () => {
   expect(updated_task.description).toBe(task.description);
 });
 
+test('Removendo Task do banco de dados', async () => {
+
+  // Cria uma Task no banco
+  const new_task = await tasksRepository.save({
+    title: "Nova Task",
+    description: "Nova descrição da Task"
+  });
+
+  // Remove a Task do banco
+  await tasksRepository.remove(new_task.id);
+
+  // Assegura que a Task foi removida
+  const task = await tasksRepository.find(new_task.id);
+
+  expect(task).toBeNull();
+});
+
 test('Teste de soma', async () => {
   let resultado = 8 + 2;
 
