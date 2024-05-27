@@ -20,11 +20,10 @@ function UserController() {
   }
 
   async function save(req, res) {
-    
     const body = req.body;
 
-    if (body.password != body.confirm_password) {
-      res.render('users/create', {
+    if (body.password !== body.password_confirmation) {
+      return res.render('users/create', {
         error: {
           message: 'Os campos senha e confirmar senha são diferentes.'
         }
@@ -41,7 +40,7 @@ function UserController() {
 
     try {
       await User.create(user);
-      res.redirect('/users');
+      return res.redirect('/users');
     } catch (error) {
       console.log(error);      
     }

@@ -46,7 +46,7 @@ function UserController() {
     
     const body = req.body;
 
-    if (body.password != body.confirm_password) {
+    if (body.password !== body.password_confirmation) {
       return res.status(500).json({
         message: "Os campos senha e confirmar senha são diferentes"
       });
