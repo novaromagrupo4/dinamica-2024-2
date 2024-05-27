@@ -6,34 +6,34 @@ const tasksRepository = useTaskRepository();
 
 function TaskController() {
 
-  async function list(req, res) {
+  async function list(request, response) {
     const tasks = await tasksRepository.list();
-    res.status(200).json(tasks);
+    response.status(200).json(tasks);
   }
 
-  async function show(req, res) {
+  async function show(request, response) {
 
     try {
 
-      const task = await tasksRepository.find(req.params.id);
+      const task = await tasksRepository.find(request.params.id);
 
       if (!task) {
-        return res.status(404).send({
+        return response.status(404).send({
           message: "Tarefa não encontrada."
         })
       }
 
-      res.status(200).json(task);
+      response.status(200).json(task);
 
     } catch (error) {
-      res.status(500).json({
+      response.status(500).json({
         message: "Task não encontrada"
       });
     }
     
   }
 
-  async function save(req, res) {
+  async function save(request, response) {
 
     const validation = Joi.object({
       title: Joi.string().min(10).required(),
@@ -42,61 +42,61 @@ function TaskController() {
     });
 
     try {
-      // await validation.validateAsync(req.body);
+      // await validation.validateAsync(request.body);
 
-      const task = await tasksRepository.save(req.body);
-      res.status(201).json(task);
+      const task = await tasksRepository.save(request.body);
+      response.status(201).json(task);
 
     } catch (error) {
-      res.status(400).json(error.details)
+      response.status(400).json(error.details)
     }
   }
 
-  async function update(req, res) {
-    const task = await tasksRepository.find(req.params.id);
+  async function update(request, response) {
+    const task = await tasksRepository.find(request.params.id);
 
     if (!task) {
-      return res.status(404).send({
+      return response.status(404).send({
         message: "Tarefa não encontrada."
       })
     }
 
-    await tasksRepository.update(req.params.id, req.body);
+    await tasksRepository.update(request.params.id, request.body);
 
-    res.json({
+    response.json({
       message: "Tarefa atualizada."
     })
   }
 
-  async function remove(req, res) {
-    const task = await tasksRepository.find(req.params.id);
+  async function remove(request, response) {
+    const task = await tasksRepository.find(request.params.id);
 
     if (!task) {
-      return res.status(404).send({
+      return response.status(404).send({
         message: "Tarefa não encontrada."
       })
     }
 
-    await tasksRepository.remove(req.params.id);
+    await tasksRepository.remove(request.params.id);
 
-    res.status(200).json({
+    response.status(200).json({
       message: "Tarefa removida."
     })
     
   }
 
-  async function updateStatus(req, res) {
-    const task = await tasksRepository.find(req.params.id);
+  async function updateStatus(request, response) {
+    const task = await tasksRepository.find(request.params.id);
 
     if (!task) {
-      return res.status(404).send({
+      return response.status(404).send({
         message: "Tarefa não encontrada."
       })
     }
 
-    await tasksRepository.updateStatus(req.params.id, req.body.done);
+    await tasksRepository.updateStatus(request.params.id, request.body.done);
 
-    res.json({
+    response.json({
       message: "Status da Tarefa atualizado."
     })
 
