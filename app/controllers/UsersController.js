@@ -6,7 +6,6 @@ function UserController() {
   function list(req, res) {
     User.findAll({ raw: true })
       .then((data) => {
-
         res.render('users/list', { 
           title: "Lista de Tarefas",
           users: data, 
@@ -113,14 +112,13 @@ function UserController() {
 
   function updateStatus(req, res) {
     const id = req.params.id
-
     const user = {
-      done: req.body.done === '0' ? true : false,
+      active: req.body.done === '0' ? true : false,
     }
 
  	  User.update(user, { where: { id: id } })
       .then(res.redirect('/users'))
-      .catch((err) => console.log())
+      .catch((err) => console.log(err))
     }
 
     return {
