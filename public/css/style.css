@@ -46,3 +46,18 @@
     text-decoration-line: line-through;
     text-decoration-thickness: 2px;
 }
+
+.botaoprimario {
+    background-color: #20c997; /* Cor de fundo do botão */
+    border: none; /* Remove a borda */
+    color: white; /* Cor do texto */
+    padding: 7px 25px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do texto */
+    text-decoration: none; /* Remove a sublinhado do texto */
+    display: inline-block; /* Exibição em linha */
+    font-size: 16px; /* Tamanho da fonte */
+    margin: 4px 2px; /* Margem */
+    cursor: pointer; /* Cursor em forma de mão */
+    border-radius: 4px; /* Bordas arredondadas */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
