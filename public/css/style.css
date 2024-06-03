@@ -38,8 +38,8 @@
 
 .footer {
     height: 100px;
-    background-color: silver;
-    padding: 10px;
+    background-color: #33333333;
+
 }
 
 .concluido td:not(:last-child) {
@@ -60,4 +60,28 @@
     cursor: pointer; /* Cursor em forma de mão */
     border-radius: 4px; /* Bordas arredondadas */
     transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+
+/* Estilização do footer */
+.footer-list {
+    font-family: 'Arial';
+    color: white;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+
+#footer_content {
+    background-color: #333333;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 3rem 3.5rem;
+}
+
+#social_media {
+    display: flex;
+    gap: 2rem;
+    height: 3rem;
 }
