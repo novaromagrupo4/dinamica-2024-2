@@ -4,6 +4,7 @@ const router = express.Router();
 const NavegacaoController = require("../app/controllers/NavegacaoController");
 const TasksController = require("../app/controllers/TasksController");
 const UsersController = require("../app/controllers/UsersController");
+const BlogPostsController = require("../app/controllers/BlogPostsController");
 
 // Rotas das Tarefas
 router.get('/tasks', TasksController.list)
@@ -24,6 +25,14 @@ router.post('/users/update-status/:id', UsersController.updateStatus)
 
 router.get('/', NavegacaoController.index);
 router.get('/sobre', NavegacaoController.sobre);
+
+
+router.get('/admin/blog-posts/list', BlogPostsController.listAll)
+router.get('/client/blog-posts/list', BlogPostsController.listWithPublishedAtEqualsOrLessThanToday)
+router.get('/blog-posts/create', BlogPostsController.create)
+router.get('/blog-posts/show/:id', BlogPostsController.findById)
+router.post('/blog-posts/save', BlogPostsController.save)
+router.post('/blog-posts/remove/:id', BlogPostsController.remove)
 
 
 

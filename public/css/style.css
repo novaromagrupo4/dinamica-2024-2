@@ -115,3 +115,48 @@
     gap: 2rem;
     height: 3rem;
 }  
+
+.blogPost-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px
+}
+
+.blogPost-card * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.blogPost-card {
+    background-color: rgba(0, 0, 0, 0.702);
+    padding: 20px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+
+    color: #fff;
+}
+
+.blogPost-card .top {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.blogPost-card .top .date {
+    font-size: 14px;
+}
+
+.blogPost-card .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blogPost-card .bottom a {
+    color: #fff;
+}
