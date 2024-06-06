@@ -32,8 +32,18 @@
 }
 
 .container {
-    min-height: calc(100vh - 56px - 100px);
     width: 100%;
+    padding: 50px;
+    min-height: calc(100vh - 56px - 100px);
+    
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.welcome-container {
+    width: 100%;
+    flex: 1;
 
     display: flex;
     flex-direction: column;
