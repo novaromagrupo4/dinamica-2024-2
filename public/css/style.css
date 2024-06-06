@@ -62,6 +62,11 @@
     transition: background-color 0.3s; /* Transição suave para a cor de fundo */
 }
 
+.botaoprimario:hover {
+    background-color: #17a673;
+    color: white;
+}
+
 
 /* Estilização do footer */
 .footer-list {

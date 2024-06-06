@@ -36,7 +36,7 @@
                 <td><%= user.active ? "Sim" : "Não" %></td>
                 <td>
                     <form action="/users/update-status/<%= user.id %>" method="POST" style="display: inline-block" onsubmit="return confirmar('Mudar status da tarefa?')">
-                        <input type="hidden" name="done" value="<%= user.active %>">
+                        <input type="hidden" name="active" value="<%= user.active %>">
                         <button type="submit" class="btn btn-warning">Status</button>
                     </form>
                     <a type="button" class="btn btn-success" href="/users/edit/<%= user.id %>">Editar</a>

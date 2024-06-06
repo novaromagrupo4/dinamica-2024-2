@@ -87,7 +87,6 @@ function UserController() {
 
   function edit(req, res) {
     const id = req.params.id
-
     User.findOne({ where: { id: id }, raw: true })
       .then((data) => {
         res.render('users/edit', { user: data })
@@ -96,13 +95,11 @@ function UserController() {
   }
 
   function update(req, res) {
-    console.log(req.body);
     const id = req.body.id
-
     const user = {
       title: req.body.title,
       description: req.body.description,
-      done: req.body.done === '1' ? true : false
+      active: req.body.active === '1' ? true : false
     }
 
     User.update(user, { where: { id: id } })
@@ -113,7 +110,7 @@ function UserController() {
   function updateStatus(req, res) {
     const id = req.params.id
     const user = {
-      active: req.body.done === '0' ? true : false,
+      active: req.body.active === '0' ? true : false,
     }
 
  	  User.update(user, { where: { id: id } })
