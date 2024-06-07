@@ -97,8 +97,8 @@ function UserController() {
   function update(req, res) {
     const id = req.body.id
     const user = {
-      title: req.body.title,
-      description: req.body.description,
+      name: req.body.name,
+      email: req.body.email,
       active: req.body.active === '1' ? true : false
     }
 
