@@ -3,6 +3,7 @@ const router = express.Router();
 
 const TasksController = require("../app/controllers/api/TasksController");
 const UsersController = require("../app/controllers/api/UsersController");
+const BlogPostsController = require("../app/controllers/api/BlogPostsController");
 
 // Rotas das Tarefas
 router.get('/tasks', TasksController.list)
@@ -20,6 +21,9 @@ router.post('/users', UsersController.save)
 router.delete('/users/:id', UsersController.remove)
 // router.put('/users/:id', UsersController.update)
 
+router.get('/blog-posts', BlogPostsController.list)
+router.post('/blog-posts', BlogPostsController.save)
+router.delete('/blog-posts/:id', BlogPostsController.remove)
 
 router.get('*', function notFound(request, response) {
   return response.status(404).json({ message: 'Página não encontrada' });

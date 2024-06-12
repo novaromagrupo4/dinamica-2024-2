@@ -1,0 +1,45 @@
+<%- include("includes/header"); %>
+
+<script>
+    function confirmar(mensagem) {
+        console.log(event)
+        const result = confirm(mensagem);
+
+        if (!result) {
+            return false;
+        }
+    }
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+</script>
+
+<div class="container">
+    <h3>Lista de Postagens</h3>
+
+    <div class="blogPost-list">
+        <% for(const blogPost of blogPosts) { %>
+           <div class="blogPost-card">
+               <div class="top">
+                   <h5><%= blogPost.title %></h5>
+               </div>
+               <div class="bottom">
+                   <p class="date">
+                        <strong>Data de Publicação:</strong>
+                        <em>
+                            <script>document.write(formatDate('<%= blogPost.published_at %>'))</script>
+                        </em>
+                    </p>
+                   <a href="/blog-posts/show/<%= blogPost.id %>">Ler a Postagem</a>
+               </div>
+           </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include("includes/footer"); %>

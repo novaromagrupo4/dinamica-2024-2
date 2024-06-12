@@ -1,0 +1,38 @@
+<%- include("includes/header"); %>
+
+<div class="container">
+
+    
+    <h3>Adicionar Postagem</h3>
+    <hr>
+    
+    <% if (typeof error != "undefined") { %>
+    <div class="alert alert-danger" role="alert">
+        <%= error.message %>
+    </div>
+    <% } %>
+
+    <form method="POST" action="/blog-posts/save">
+        <div class="mb-3">
+          <label for="title" class="form-label">Título</label>
+          <input type="text" class="form-control" id="title" name="title" autofocus>
+        </div>
+        <div class="mb-3">
+          <label for="text" class="form-label">Texto</label>
+          <input class="form-control" id="text" name="text">
+        </div>
+        <div class="mb-3">
+          <label for="created_at" class="form-label">Data de Criação</label>
+          <input type="date" class="form-control" id="created_at" name="created_at">
+        </div>
+        <div class="mb-3">
+          <label for="published_at" class="form-label">Data de Publicação</label>
+          <input type="date" class="form-control" id="published_at" name="published_at">
+        </div>
+        <button type="submit" class="botaoprimario">Salvar</button>
+        <a href="/admin/blog-posts/list" class="btn btn-secondary">Cancelar</a>
+    </form>
+    
+</div>
+
+<%- include("includes/footer"); %>

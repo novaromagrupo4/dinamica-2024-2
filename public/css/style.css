@@ -32,17 +32,131 @@
 }
 
 .container {
-    min-height: calc(100vh - 56px - 100px);
+    width: 100%;
     padding: 50px;
+    min-height: calc(100vh - 56px - 100px);
+    
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.welcome-container {
+    width: 100%;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-wrapper {
+    padding-top: 45px;
+    padding-inline: 45px;
+    background-color: rgba(0, 0, 0, 0.702);
+    border-radius: 10px;
+
+    color: white;
+    text-align: center;
 }
 
 .footer {
     height: 100px;
-    background-color: silver;
-    padding: 10px;
+    background-color: #33333333;
+
 }
 
 .concluido td:not(:last-child) {
     text-decoration-line: line-through;
     text-decoration-thickness: 2px;
+}
+
+.botaoprimario {
+    background-color: #20c997; /* Cor de fundo do botão */
+    border: none; /* Remove a borda */
+    color: white; /* Cor do texto */
+    padding: 7px 25px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do texto */
+    text-decoration: none; /* Remove a sublinhado do texto */
+    display: inline-block; /* Exibição em linha */
+    font-size: 16px; /* Tamanho da fonte */
+    margin: 4px 2px; /* Margem */
+    cursor: pointer; /* Cursor em forma de mão */
+    border-radius: 4px; /* Bordas arredondadas */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+.botaoprimario:hover {
+    background-color: #17a673;
+    color: white;
+}
+
+
+/* Estilização do footer */
+.footer-list {
+    font-family: 'Arial';
+    color: white;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+
+#footer_content {
+    background-color: #333333;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 3rem 3.5rem;
+}
+
+#social_media {
+    display: flex;
+    gap: 2rem;
+    height: 3rem;
+}  
+
+.blogPost-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px
+}
+
+.blogPost-card * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.blogPost-card {
+    background-color: rgba(0, 0, 0, 0.702);
+    padding: 20px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+
+    color: #fff;
+}
+
+.blogPost-card .top {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.blogPost-card .top .date {
+    font-size: 14px;
+}
+
+.blogPost-card .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blogPost-card .bottom a {
+    color: #fff;
 }
