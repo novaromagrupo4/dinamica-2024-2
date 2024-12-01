@@ -39,6 +39,16 @@
     margin-bottom: 0px;
 }
 
+.btn-custom {
+    background-color: #20c997;
+    border-color: #20c997;
+}
+
+.btn-custom:hover {
+    background-color: #19916d;
+    border-color: #19916d;
+}
+
 .header {
     height: 150px;
     background-color: tomato;
