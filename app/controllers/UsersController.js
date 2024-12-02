@@ -23,12 +23,14 @@ function UserController() {
     
     const body = req.body;
 
-    if (body.password != body.confirm_password) {
+    if (body.password !== body.password_confirmation) {
       res.render('users/create', {
         error: {
           message: 'Os campos senha e confirmar senha são diferentes.'
         }
       });
+
+      return
     }
 
     const hashed_password = await bcrypt.hash(req.body.password, 10);
