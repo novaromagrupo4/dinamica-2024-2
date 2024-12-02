@@ -1,0 +1,27 @@
+<%- include("includes/header"); %>
+
+  <div class="container">
+    <h3>Editar Postagem</h3>
+    <hr>
+
+    <form method="POST" action="/blogs/update">
+      <input type="hidden" name="id" value="<%= blog.id %>">
+      <div class="mb-3">
+        <label for="titulo" class="form-label">Título</label>
+        <input type="text" class="form-control" id="titulo" name="title" value="<%= blog.title %>" required>
+      </div>
+      <div class="mb-3">
+        <label for="descricao" class="form-label">Conteúdo</label>
+        <textarea class="form-control" id="descricao" name="postagem" required><%= blog.postagem %></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label">Data da Postagem</label>
+        <input type="date" class="form-control" id="date" name="date"
+          value="<%= new Date(blog.date).toISOString().split('T')[0] %>" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-custom">Salvar</button>
+      <a href="/blogs" class="btn btn-secondary">Cancelar</a>
+    </form>
+  </div>
+
+  <%- include("includes/footer"); %>
